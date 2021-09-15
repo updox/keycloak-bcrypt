@@ -1,18 +1,36 @@
 plugins {
-    java
+    `java-library`
+    `maven-publish`
 }
 
 group = "com.github.leroyguillaume"
 version = "1.5.0"
 
+publishing {
+    publications {
+        create<MavenPublication> ("keycloak-bcrypt") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "updox"
+            url = uri( "https://nexus.updoxnet.com/repository/releases/")
+            credentials(PasswordCredentials::class)
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
 
+
+
 dependencies {
     val bcryptVersion = "0.9.0"
     val jbossLoggingVersion = "3.4.1.Final"
-    val keycloakVersion = "10.0.1"
+    val keycloakVersion = "14.0.0"
 
     // BCrypt
     implementation("at.favre.lib:bcrypt:$bcryptVersion")
@@ -38,6 +56,6 @@ tasks {
     }
 
     wrapper {
-        gradleVersion = "6.4"
+        gradleVersion = "6.8.1"
     }
 }
