@@ -4,6 +4,7 @@ plugins {
 }
 
 group = "com.github.leroyguillaume"
+// pin the nexus artifact version at the Keycloak server version
 version = "16.1.0"
 
 publishing {
