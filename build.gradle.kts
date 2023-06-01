@@ -5,7 +5,7 @@ plugins {
 
 group = "com.github.leroyguillaume"
 // pin the nexus artifact version at the Keycloak server version
-version = "16.1.0"
+version = "21.1.1"
 
 publishing {
     publications {
@@ -31,7 +31,7 @@ repositories {
 dependencies {
     val bcryptVersion = "0.9.0"
     val jbossLoggingVersion = "3.4.1.Final"
-    val keycloakVersion = "16.1.0"
+    val keycloakVersion = "21.1.1"
 
     // BCrypt
     implementation("at.favre.lib:bcrypt:$bcryptVersion")
